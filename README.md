@@ -54,7 +54,7 @@ Contact: pramodngare1993@gmail.com
     
     Given that we have products, merchandise and transaction data, consider we need to create a pipeline that runs on regular schedule (here daily @ 9:00 AM)
 
-    DAG: loblaw_digital_load_data_dag
+    #### DAG: loblaw_digital_load_data_dag
 
     ![dag1.png](imgs/dag1.png)
 
@@ -62,7 +62,7 @@ Contact: pramodngare1993@gmail.com
 
     Once we have significant updates to product and transactions specific data we can refresh Product recommendation model on ad-hoc basis
 
-    DAG: product_recommendation_dag
+    #### DAG: product_recommendation_dag
     
     ![dag2.png](imgs/dag2.png)
 
@@ -77,7 +77,7 @@ Contact: pramodngare1993@gmail.com
 6. Update the DAGs to composer dag storage bucket
 7. Update airflow Variables for respective pipelines
 
-Variable: loblaw_load_var
+#### Variable: loblaw_load_var
 
     {
         "BQ_CONN_ID": "",
@@ -146,7 +146,7 @@ Variable: loblaw_load_var
     }
 
 
-Variable: loblaw_product_recomm_var
+#### Variable: loblaw_product_recomm_var
 
     {
         "BQ_CONN_ID": "",
@@ -216,8 +216,8 @@ SQL as function:
 
 3. How would you deploy and serve the model:
 
-        As we have 2 different pipelines, <i> loblaw_digital_load_data_dag </i> and <i> product_recommendation_dag </i>; we can schedule as per the business requirement which will refresh the product specific tables recommendation model based on new data.
+    As we have 2 different pipelines, <i> loblaw_digital_load_data_dag </i> and <i> product_recommendation_dag </i>; we can schedule as per the business requirement which will refresh the product specific tables recommendation model based on new data.
 
-        The query/model (table product_recommendation) we will refer to get recommended products will be up-to-date with latest transactions taken into consideration and also we are maintaining different versions for models (table product_recommendation_<YYYY-MM-DD>)
+    The query/model (table product_recommendation) we will refer to get recommended products will be up-to-date with latest transactions taken into consideration and also we are maintaining different versions for models (table product_recommendation_<YYYY-MM-DD>)
 
     ![models.png](imgs/models.png)
